@@ -13,16 +13,50 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random Dad Joke to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+const container = document.querySelector("#wordContainer");
+const addjokebtn = document.querySelector("#addjoke");
+const removejokebtn = document.querySelector("#removejoke");
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+const getDadJoke = async () => {
+    try {
+        const config = { headers: { Accept: 'application/json' } };
+        const res = await axios.get("https://icanhazdadjoke.com/", config);
+        let joke = res.data.joke;
+        container.innerText = joke;
+    } catch (e) {
+        container.textContent = "NO JOKES AVAILABLE :(";
+    }
+};
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
+function removeJokes() {
+    container.textContent = null;
+};
+
+addjokebtn.addEventListener('click', function () {
+    getDadJoke();
+});
+removejokebtn.addEventListener('click', function () {
+    removeJokes();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+            document.getElementById('navbar_top').classList.add('is-size-5');
+
+            document.getElementById('navbar-title').classList.remove('is-size-3');
+            document.getElementById('navbar-title').classList.add('is-size-4');
+
+            document.getElementById('form').classList.add('d-none');
+        } else {
+            document.getElementById('navbar_top').classList.remove('is-size-5');
+
+            document.getElementById('navbar-title').classList.add('is-size-3');
+            document.getElementById('navbar-title').classList.remove('is-size-4');
+
+            document.getElementById('form').classList.remove('d-none');
+        }
+    });
+});

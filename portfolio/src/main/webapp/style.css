@@ -1,9 +1,19 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+nav.navbar {
+    background-color: black;
 }
 
-#greeting-container {
-  margin-top: 20px;
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    font-family: 'Open Sans';
 }
+
+.main {
+    margin-top: 70px;
+}
+
+#wordContainer {
+    text-align: center;
+}
+
