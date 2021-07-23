@@ -12,10 +12,10 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 
-<body class="has-background-grey-lighter" onload="initMap();">
+<body class="" onload="initMap();">
    <header class="is-size-6-tablet is-size-4-desktop">
         <nav id="navbar_top" class="navbar navbar-expand-md navbar-dark fixed-top">
-            <a id="navbar-title" class="navbar-brand is-size-3" href="#">Temiloluwa's Portfolio</a>
+            <a id="navbar-title" class="navbar-brand is-size-3" href="#">My Portfolio</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,42 +26,31 @@
                         <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Projects</a>
+                        <a class="nav-link" href="https://mighty-mountain-82142.herokuapp.com/">YelpCamp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scorekeeper.html">Score Keeper</a>
                     </li>
                 </ul>
-                <form id="form" class="form-inline mt-2 mt-md-0">
+                <form id="form" class="form-inline mt-0 mt-md-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
     </header>
-    <main class="main has-background-grey-lighter is-size-6 is-size-4-desktop">
+    <main class="main is-size-6 is-size-4-desktop">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-1 has-background-grey-lighter"></div>
-                <div class="col-md-10">
+                <div class="col-md-10 offset-1">
+                    <br>
                     <div class="card">
                         <div class="card-content center">
                             <div id="content" class="content">
-                                <p>This is my portfolio. Hopefully, it'll be good :/</p>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <figure class="image column" width="inherit"><img
-                                                src="https://media.gettyimages.com/photos/koala-mother-and-child-picture-id1166121752?k=6&m=1166121752&s=612x612&w=0&h=LhNEASrUakWOjaHTJ7OWxRfyXI6FuDqZXv8Zsnibw6U="
-                                                alt='image' /></figure>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <figure class="image column" width="inherit"><img
-                                                src="https://images.pexels.com/photos/936317/pexels-photo-936317.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                                alt='image' />
-                                        </figure>
-                                    </div>
-                                </div>
+                                <p>I'm Temiloluwa and this is my portfolio. Hopefully, you'll love it :/</p>  
                                 <br>
                                 <hr>
                                 <h1>Server Text</h1>
-                                <p>See the text.</p>
                                 <button class='btn btn-outline-warning my-2 my-sm-0' onclick="showText()">
                                 Fetch Text
                                 </button>
@@ -85,22 +74,38 @@
                     <br>
                     <div class="tile is-ancestor">
                         <div class="tile is-4 is-vertical is-parent">
-                            <div class="tile is-child box notification is-primary">
+                            <div id="tp" class="tile is-child box notification">
+                                <div class="carousel slide mx-0 my-0" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="image" src="https://images.unsplash.com/photo-1574418811226-76ac2a10f658?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1vdW50YWlufGVufDB8MnwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item" width="inherit">
+                                            <img class="d-block w-100" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG5hdHVyZXxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item" width="">
+                                            <img class="d-block w-100" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJlfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item" width="">
+                                            <img class="d-block w-100" src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Fourth slide">
+                                        </div>
+                                    </div>
+                                </div>    
                             </div>
                             <div class="tile is-child box notification is-danger">
-                                <h1 class="title is-size-4">Projects</h1>
+                                <h1 class="title text-center is-size-4 mb-0">Projects</h1>
                                 <hr>
                                 <div class="is-size-5">
-                                    <p> My projects are 
-                                        <a class=" link is-italic" href="scorekeeper.html">score keeper</a>, a mini
-                                        checkers game, annndddd more...
+                                    <p>
+                                        <a class=" link is-italic" href="https://mighty-mountain-82142.herokuapp.com/">Yelp Camp</a>, <a class=" link is-italic" href="scorekeeper.html">Score Keeper</a>, a Mini
+                                        Checkers Game.
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="tile is-parent">
                             <div class="tile is-child box notification is-success">
-                                <h1 class="title text-center is-size-3">What makes me ME!</h1>
+                                <h1 class="title text-center is-size-3 mb-0">What makes me ME!</h1>
                                 <hr>
                                 <p class="text-center is-size-4"> I am a creative person who enjoys working alongside
                                     other people.
@@ -123,51 +128,53 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container">
-                        <div class="row">
-                            <div id="side" class="col-md-8">
-                                <h1 class="mt-1">Sentiment Analysis</h1>
-                                <p>Type a message and click submit to analyze its sentiment:</p>
-                                <form method="POST" action="/sentiment">
-                                    <textarea name="message" placeholder="enter text" type="text" class="form-control"></textarea>
-                                    <br/>
-                                    <button class='btn btn-sm btn-outline-primary' onclick="showSentiment();">Submit</button>
-                                </form>
-                                <p id="showSentiment"></p>
+                        <div class="gx-1 justify-content-around">
+                            <div id="side" class="card">
+                                <div class="mx-5">
+                                    <h1 class="mt-2">Sentiment Analysis</h1>
+                                    <p>Type a message and click submit to analyze its sentiment:</p>
+                                    <form method="POST" action="/sentiment" class="mb-2">
+                                        <textarea name="message" placeholder="enter text" type="text" class="form-control"></textarea>
+                                        <br/>
+                                        <button class='btn btn-sm btn-outline-light' onclick="showSentiment();">Submit</button>
+                                    </form>
+                                    <p id="showSentiment"></p>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <section>
+                            <br>
+                            <div class="">
+                                <span>
                                     <div id="map"></div>
-                                </section>
+                                </span>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <form action="/form-handler" method="POST">
-                        <div class="row pb-0">
-                            <p class="is-size-2 is-size-3-tablet is-size-4-mobile col-3 pt-0">Contact me</p>
-                            <div class="form-group col-3 pt-3">
-                                <input name="email-input" placeholder="email" type="email" class="form-control" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group col-6 pt-3">
-                                <textarea name="text-input" placeholder="message" type="text" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                        <input type="submit" class="btn btn-sm btn-outline-primary"/>
-                        </div>
-                    </form>
                 </div>
-                <hr>
-                <br>
             </div>
+            <br>
+            <br>
+            <br>
+            <form action="/form-handler" method="POST" class="border-top border-light">
+                <div class="row pb-0">
+                    <p class="text-light is-size-2 is-size-3-tablet is-size-4-mobile col-3 pt-0">Contact me</p>
+                    <div class="form-group col-3 pt-3">
+                        <input name="email-input" placeholder="email" type="email" class="form-control" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group col-6 pt-3">
+                        <textarea name="text-input" placeholder="message" type="text" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="text-right">
+                <input type="submit" class="btn btn-sm mt-1 btn-outline-light"/>
+                </div>
+            </form>
         </div>
     </main>
-    <hr>
-    <footer class="text-center text-black">
-        <div class="text-center p-3 ">
-            © 2021 Copyright: Temiloluwa
-        </div>
+    <br>
+    <br>
+    <footer class="text-center is-size-5 text-white border-top border-light">
+            <div class="text-center p-3 ">
+                © Temiloluwa - <a class="text-light" href="https://github.com/temiloluwa-hub">Github</a>
+            </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

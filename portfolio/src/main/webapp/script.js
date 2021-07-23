@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 })
+let map, infoWindow;
 
 function initMap() {
   // Styles a map in night mode.
@@ -147,26 +148,56 @@ function initMap() {
       },
     ],
   });
-
-  const trexMarker = new google.maps.Marker({
-    position: {lat: 37.421903, lng: -122.084674},
-    map: map,
-    title: 'Stan the T-Rex'
-  });
+infoWindow = new google.maps.InfoWindow();
+  const locationButton = document.createElement("button");
+  locationButton.textContent = "Pan to Current Location";
+  locationButton.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+  locationButton.addEventListener("click", () => {
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          infoWindow.setPosition(pos);
+          infoWindow.open(map);
+          map.setCenter(pos);
+        },
+        () => {
+          handleLocationError(true, infoWindow, map.getCenter());
+        }
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  });  
 }
 
-async function showText() {
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+}
+
+const showText = async () => {
     try{
-        const responseFromServer = await fetch('/hello');
-        const res = await responseFromServer.json();
+        const res = await fetch('/hello');
         
         const textContainer = document.getElementById('showText');
         
-        const messages = [`My favorite song is ${res.song}`,
-                        `My favorite movie is ${res.movie}`,
-                        `My favorite series is ${res.series}`, 
-                        `My favorite sport is ${res.sport}`, 
-                        `My favorite game is ${res.game}`,                
+        const messages = [`My favorite song is ${res.song = 'Save Your Tears'}`,
+                        `My favorite movie is ${res.movie = 'Cruella'}`,
+                        `My favorite series is ${res.series = 'Game of Thrones'}`, 
+                        `My favorite sport is ${res.sport = 'Soccer'}`, 
+                        `My favorite game is ${res.game = 'Detroit: Become Human'}`,                
     ];
 
         const randNum = Math.floor((Math.random()* (messages.length)));
@@ -179,8 +210,7 @@ async function showText() {
 
 async function showSentiment() {
     try{
-        const response = await fetch('/sentiment');
-        const ress = await response.html();
+        const ress = await fetch('/sentiment');
         
         const sentimentContainer = document.getElementById('showSentiment');
         sentimentContainer.innerText = ress;
